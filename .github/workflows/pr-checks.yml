@@ -1,0 +1,51 @@
+name: PR Checks
+
+on:
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  lint-and-test:
+    name: 🔍 Lint & Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Backend - Install & Test
+        working-directory: backend
+        run: |
+          npm ci
+          npm test
+        env:
+          NODE_ENV: test
+          JWT_SECRET: test_secret
+          DATABASE_URL: ''
+
+      - name: Frontend - Install, Test & Build check
+        working-directory: frontend
+        run: |
+          npm ci
+          npm run test:ci
+          npm run build
+        env:
+          CI: false
+          REACT_APP_API_URL: http://localhost:3001/api
+
+      - name: Post PR comment with summary
+        uses: actions/github-script@v7
+        if: always()
+        with:
+          script: |
+            const status = '${{ job.status }}' === 'success' ? '✅' : '❌';
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `${status} **CI checks ${status === '✅' ? 'passed' : 'failed'}** for this PR.\n\nSee the [full run details](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}).`
+            })
