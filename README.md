@@ -66,7 +66,7 @@ Browser ── :3000 ─► │  frontend (Vite/React)               │
 
 ```bash
 git clone https://github.com/jaysonstn/Stockflow-v1.git
-cd stockflow-erp
+cd stockflow-v1
 ```
 
 ### 2. Configurar variáveis de ambiente
