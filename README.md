@@ -65,7 +65,7 @@ Browser ── :3000 ─► │  frontend (Vite/React)               │
 ### 1. Clonar o repositório
 
 ```bash
-git clone https://github.com/SEU_USUARIO/stockflow-erp.git
+git clone https://github.com/jaysonstn/Stockflow-v1.git
 cd stockflow-erp
 ```
 
@@ -106,7 +106,7 @@ O seed do banco roda automaticamente na primeira inicialização — nenhum pass
 ## 🗂️ Estrutura do Projeto
 
 ```
-stockflow-erp/
+stockflow-v1/
 ├── .github/
 │   └── workflows/
 │       ├── ci-cd.yml           # Pipeline principal
@@ -263,9 +263,9 @@ Push / PR
 mkdir -p /opt/stockflow && cd /opt/stockflow
 
 # Baixar os arquivos necessários
-curl -O https://raw.githubusercontent.com/SEU_USUARIO/stockflow-erp/main/docker-compose.yml
-curl -O https://raw.githubusercontent.com/SEU_USUARIO/stockflow-erp/main/docker-compose.prod.yml
-curl -O https://raw.githubusercontent.com/SEU_USUARIO/stockflow-erp/main/nginx/nginx.conf
+curl -O https://raw.githubusercontent.com/jaysonstn/stockflow-v1/main/docker-compose.yml
+curl -O https://raw.githubusercontent.com/jaysonstn/stockflow-v1/main/docker-compose.prod.yml
+curl -O https://raw.githubusercontent.com/jaysonstn/stockflow-v1/main/nginx/nginx.conf
 
 # Configurar variáveis de produção
 cp .env.example .env
