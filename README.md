@@ -2,7 +2,7 @@
 
 > A professional, full-stack Inventory and Sales Management System built with React, Node.js, and PostgreSQL — ready for production with Docker and GitHub Actions CI/CD.
 
-![CI/CD](https://github.com/YOUR_USERNAME/stockflow/actions/workflows/ci-cd.yml/badge.svg)
+![Dashboard](./images/dashboard.png)
 
 ## ✨ Features
 
